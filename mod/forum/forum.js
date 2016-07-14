@@ -57,3 +57,8 @@ function unlockoption(form,item) {
         form.elements['h'+item].value=0;
     }
 }
+
+var model = [];
+function add_key_events(e,a){
+    console.log(e,a);
+}
