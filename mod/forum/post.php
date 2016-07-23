@@ -567,11 +567,11 @@ $mform_post = new mod_forum_post_form('post.php', array('course' => $course,
                                                         'thresholdwarning' => $thresholdwarning,
                                                         'edit' => $edit), 'post', '', array('id' => 'mformforum'));
 
-//this module will capture the datas from a container
-$PAGE->requires->yui_module('moodle-mod_forum-capture_keystroke', 'M.mod_forum.init_capture_keystroke');
-
 $draftitemid = file_get_submitted_draft_itemid('attachments');
 file_prepare_draft_area($draftitemid, $modcontext->id, 'mod_forum', 'attachment', empty($post->id)?null:$post->id, mod_forum_post_form::attachment_options($forum));
+
+//this module will capture the datas from a container
+$PAGE->requires->yui_module('moodle-mod_forum-capture_keystroke', 'M.mod_forum.init_capture_keystroke');
 
 //load data into form NOW!
 

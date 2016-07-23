@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/moodle/blocks/my_basic_form/block_my_basic_form.php</file>
-            <file>file:/C:/wamp64/www/moodle/blocks/my_basic_form/output/form.php</file>
-            <file>file:/C:/wamp64/www/moodle/blocks/my_basic_form/db/install.xml</file>
-            <file>file:/C:/wamp64/www/moodle/blocks/my_basic_form/view.php</file>
-            <file>file:/C:/wamp64/www/moodle/blocks/my_basic_form/version.php</file>
+            <file>file:/C:/wamp64/www/moodle/mod/forum/yui/capture_keystroke/capture_keystroke.js</file>
+            <file>file:/C:/wamp64/www/moodle/mod/forum/classes/post_form.php</file>
+            <file>file:/C:/wamp64/www/moodle/mod/forum/post.php</file>
+            <file>file:/C:/wamp64/www/moodle/mod/forum/version.php</file>
+            <file>file:/C:/wamp64/www/moodle/mod/forum/forum.js</file>
         </group>
     </open-files>
 </project-private>

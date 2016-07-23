@@ -105,6 +105,10 @@ class mod_forum_post_form extends moodleform {
             }
         }
 
+        /*
+         * Class "capture_keystroke" was added to get the keystroke informations > more in yui module capture_keystroke
+         */
+        
         $mform->addElement('text', 'subject', get_string('subject', 'forum'), array('size'=>'48', 'class'=>'capture_keystroke'));
         $mform->setType('subject', PARAM_TEXT);
         $mform->addRule('subject', get_string('required'), 'required', null, 'client');
