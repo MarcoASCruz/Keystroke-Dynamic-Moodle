@@ -62,11 +62,28 @@ class login_change_password_form extends moodleform {
         $mform->addElement('password', 'newpassword2', get_string('newpassword').' ('.get_String('again').')');
         $mform->addRule('newpassword2', get_string('required'), 'required', null, 'client');
         $mform->setType('newpassword2', PARAM_RAW);
+        
+        $mform->addElement('text', 'capital', "Informe a capital do país", 'class="capture_keystroke"');
+        $mform->addRule('capital', get_string('required'), 'required', null, 'client');
+        $mform->setType('capital', PARAM_RAW);
+        
+        $mform->addElement('text', 'music', "Informe uma música, banda ou artista que você gosta", 'class="capture_keystroke"');
+        $mform->addRule('music', get_string('required'), 'required', null, 'client');
+        $mform->setType('music', PARAM_RAW);
+        
+        
+        $mform->addElement('static', 'sample', '', 'My super text fafafafafafafafafaf'); 
+        $mform->addElement('textarea', 'textSample', "Digite o texto acima", 'class="capture_keystroke"');
+        $mform->addRule('textSample', get_string('required'), 'required', null, 'client');
+        $mform->setType('textSample', PARAM_RAW);
 
 
         // hidden optional params
         $mform->addElement('hidden', 'id', 0);
         $mform->setType('id', PARAM_INT);
+        
+        $mform->addElement('hidden', 'id_user', $USER->id);
+        $mform->setType('id_user', PARAM_INT);
 
         // buttons
         if (get_user_preferences('auth_forcepasswordchange')) {

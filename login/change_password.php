@@ -105,6 +105,9 @@ if ($changeurl = $userauth->change_password_url()) {
 $mform = new login_change_password_form();
 $mform->set_data(array('id'=>$course->id));
 
+//this module will capture the datas from a container
+$PAGE->requires->yui_module('moodle-mod_forum-capture_keystroke', 'M.mod_forum.init_capture_keystroke_sample');
+
 $navlinks = array();
 $navlinks[] = array('name' => $strparticipants, 'link' => "$CFG->wwwroot/user/index.php?id=$course->id", 'type' => 'misc');
 

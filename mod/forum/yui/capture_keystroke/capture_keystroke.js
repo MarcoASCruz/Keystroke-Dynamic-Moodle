@@ -2,6 +2,8 @@ YUI.add('moodle-mod_forum-capture_keystroke',
     function(Y) {
         var ModulenameNAME = 'capture_keystroke';
         var model = [];
+        var sample = undefined;
+        var idUser = undefined;
         
         var MODULENAME = function() {
             MODULENAME.superclass.constructor.apply(this, arguments);
@@ -20,7 +22,16 @@ YUI.add('moodle-mod_forum-capture_keystroke',
                         addKeyListeners(elements[i]);
                     }
                     
-                    sendDataOnSubmit();
+                    idUser = document.getElementsByName('id_user')[0].value;
+                    
+                    var serviceName = undefined;
+                    if(sample){
+                        serviceName = "setSample";
+                    }
+                    else{
+                        serviceName = "validate";
+                    }
+                    sendDataOnSubmit(serviceName);
                 }
             }
             , 
@@ -58,7 +69,7 @@ YUI.add('moodle-mod_forum-capture_keystroke',
             return new Date().getTime();
         }
         
-        function sendDataOnSubmit(){
+        function sendDataOnSubmit(serviceName){
             var submitButton = document.getElementById('id_submitbutton');
                     
             submitButton.addEventListener("click", function(event){
@@ -80,7 +91,7 @@ YUI.add('moodle-mod_forum-capture_keystroke',
                 }
                 
                 if (fieldsOK){
-                    sendModel();
+                    sendModel(serviceName);
                 }
                 
             });
@@ -103,14 +114,13 @@ YUI.add('moodle-mod_forum-capture_keystroke',
             return result;
         }
         
-        function sendModel(){
+        function sendModel(serviceName){
             var request = new XMLHttpRequest();
             var formData = new FormData();
             formData.append('model', JSON.stringify(model));
-            formData.append('original', "true"); //remove it when the web service be ok
-            formData.append('training', "true"); //remove it when the web service be ok
-		
-            request.open("POST", "http://localhost:5000/validateModel", true);
+            formData.append('idUser', idUser);
+        
+            request.open("POST", "http://localhost:5000/" + serviceName, true);
             request.send(formData);
             clearModel();
         }
@@ -122,12 +132,13 @@ YUI.add('moodle-mod_forum-capture_keystroke',
         // This line use existing name path if it exists, otherwise create a new one. 
         // This is to avoid to overwrite previously loaded module with same name.
         M.mod_forum = M.mod_forum || {}; 
-        M.mod_forum.init_capture_keystroke = function(config) {
-            return new MODULENAME(config);
+        M.mod_forum.init_capture_keystroke_sample = function(config) {
+            sample = true;
+            return new MODULENAME();
         };
-        M.mod_forum.get_model = function() {
-            console.log(model);
-            alert("test!");
+        M.mod_forum.init_capture_keystroke_test = function(config) {
+            sample = false;
+            return new MODULENAME();
         };
     }
     , 
