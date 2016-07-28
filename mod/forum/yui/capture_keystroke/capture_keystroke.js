@@ -1,7 +1,7 @@
 YUI.add('moodle-mod_forum-capture_keystroke', 
     function(Y) {
         var ModulenameNAME = 'capture_keystroke';
-        var model = [];
+        var models = [];
         var sample = undefined;
         var idUser = undefined;
         
@@ -50,20 +50,27 @@ YUI.add('moodle-mod_forum-capture_keystroke',
         
         //"private" methods
         function addKeyListeners(element){
+            var id = createNewId();
             element.addEventListener("keydown", function(event){
-                listenerCallback(event, "DOWN");
+                listenerCallback(event, "DOWN", id);
             });
             element.addEventListener("keyup", function(event){
-                listenerCallback(event, "UP");
+                listenerCallback(event, "UP", id);
+                console.log(models)
             });
         }
-        function listenerCallback(event, action){
+        function createNewId(){
+            var id = models.length; //last position of array
+            models[id] = [];
+            return id;
+        }
+        function listenerCallback(event, action, id){
             var keyCode = event.which || event.keyCode; // event.keyCode is used for IE8 and earlier
-            addParamInModel(keyCode, action);
+            addParamInModel(keyCode, action, id);
             event.stopPropagation();
         }
-        function addParamInModel(keyCode, action) {
-            model.push({ keyCode: keyCode, time: getTime(), action: action });
+        function addParamInModel(keyCode, action, id) {
+            models[id].push({ keyCode: keyCode, time: getTime(), action: action });
         }
         function getTime() {
             return new Date().getTime();
@@ -117,7 +124,7 @@ YUI.add('moodle-mod_forum-capture_keystroke',
         function sendModel(serviceName){
             var request = new XMLHttpRequest();
             var formData = new FormData();
-            formData.append('model', JSON.stringify(model));
+            formData.append('model', JSON.stringify(getValidatedModel()));
             formData.append('idUser', idUser);
         
             request.open("POST", "http://localhost:5000/" + serviceName, true);
@@ -125,8 +132,18 @@ YUI.add('moodle-mod_forum-capture_keystroke',
             clearModel();
         }
         
+        function getValidatedModel(){
+            var validatedModel = [];
+            models.forEach(function(item, index){
+                if (item.length > 0){
+                    validatedModel.push(item);
+                }
+            })
+            return validatedModel;
+        }
+        
         function clearModel(){
-            model = [];
+            models = [];
         }
 
         // This line use existing name path if it exists, otherwise create a new one. 

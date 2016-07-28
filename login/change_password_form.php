@@ -66,16 +66,26 @@ class login_change_password_form extends moodleform {
         $mform->addElement('text', 'capital', "Informe a capital do país", 'class="capture_keystroke"');
         $mform->addRule('capital', get_string('required'), 'required', null, 'client');
         $mform->setType('capital', PARAM_RAW);
+        $mform->addElement('text', 'capitalAgain', "Informe a capital do país novamente", 'class="capture_keystroke"');
+        $mform->addRule('capitalAgain', get_string('required'), 'required', null, 'client');
+        $mform->setType('capitalAgain', PARAM_RAW);
         
         $mform->addElement('text', 'music', "Informe uma música, banda ou artista que você gosta", 'class="capture_keystroke"');
         $mform->addRule('music', get_string('required'), 'required', null, 'client');
         $mform->setType('music', PARAM_RAW);
+        $mform->addElement('text', 'musicAgain', "Informe a mesma banda, artista ou música novamente", 'class="capture_keystroke"');
+        $mform->addRule('musicAgain', get_string('required'), 'required', null, 'client');
+        $mform->setType('musicAgain', PARAM_RAW);
         
         
-        $mform->addElement('static', 'sample', '', 'My super text fafafafafafafafafaf'); 
+        
+        $mform->addElement('static', 'sample', '', 'My super text'); 
         $mform->addElement('textarea', 'textSample', "Digite o texto acima", 'class="capture_keystroke"');
         $mform->addRule('textSample', get_string('required'), 'required', null, 'client');
         $mform->setType('textSample', PARAM_RAW);
+        $mform->addElement('textarea', 'textSampleAgain', "Digite o texto acima novamente", 'class="capture_keystroke"');
+        $mform->addRule('textSampleAgain', get_string('required'), 'required', null, 'client');
+        $mform->setType('textSampleAgain', PARAM_RAW);
 
 
         // hidden optional params
