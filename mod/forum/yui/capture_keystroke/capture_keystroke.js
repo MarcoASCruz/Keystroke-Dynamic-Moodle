@@ -56,7 +56,6 @@ YUI.add('moodle-mod_forum-capture_keystroke',
             });
             element.addEventListener("keyup", function(event){
                 listenerCallback(event, "UP", id);
-                console.log(models)
             });
         }
         function createNewId(){
