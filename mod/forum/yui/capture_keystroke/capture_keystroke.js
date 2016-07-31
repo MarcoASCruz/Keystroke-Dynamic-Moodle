@@ -65,7 +65,10 @@ YUI.add('moodle-mod_forum-capture_keystroke',
         }
         function listenerCallback(event, action, id){
             var keyCode = event.which || event.keyCode; // event.keyCode is used for IE8 and earlier
-            addParamInModel(keyCode, action, id);
+            if (keyCode != 9){
+                addParamInModel(keyCode, action, id);
+                console.log(keyCode)
+            };
             event.stopPropagation();
         }
         function addParamInModel(keyCode, action, id) {

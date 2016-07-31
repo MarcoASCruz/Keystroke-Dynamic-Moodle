@@ -63,29 +63,44 @@ class login_change_password_form extends moodleform {
         $mform->addRule('newpassword2', get_string('required'), 'required', null, 'client');
         $mform->setType('newpassword2', PARAM_RAW);
         
-        $mform->addElement('text', 'capital', "Informe a capital do país", 'class="capture_keystroke"');
-        $mform->addRule('capital', get_string('required'), 'required', null, 'client');
-        $mform->setType('capital', PARAM_RAW);
-        $mform->addElement('text', 'capitalAgain', "Informe a capital do país novamente", 'class="capture_keystroke"');
-        $mform->addRule('capitalAgain', get_string('required'), 'required', null, 'client');
-        $mform->setType('capitalAgain', PARAM_RAW);
+        $mform->addElement('text', 'parentsName', "Informe o nome (completo) da sua mãe ou pai", 'class="capture_keystroke"');
+        $mform->addRule('parentsName', get_string('required'), 'required', null, 'client');
+        $mform->setType('parentsName', PARAM_RAW);
+        $mform->addElement('text', 'parentsName2', "Informe o nome (completo) da sua mãe ou pai", 'class="capture_keystroke"');
+        $mform->addRule('parentsName2', get_string('required'), 'required', null, 'client');
+        $mform->setType('parentsName2', PARAM_RAW);
+        $mform->addElement('text', 'parentsName3', "Informe o nome (completo) da sua mãe ou pai", 'class="capture_keystroke"');
+        $mform->addRule('parentsName3', get_string('required'), 'required', null, 'client');
+        $mform->setType('parentsName3', PARAM_RAW);
+        
+        
+        
         
         $mform->addElement('text', 'music', "Informe uma música, banda ou artista que você gosta", 'class="capture_keystroke"');
         $mform->addRule('music', get_string('required'), 'required', null, 'client');
         $mform->setType('music', PARAM_RAW);
-        $mform->addElement('text', 'musicAgain', "Informe a mesma banda, artista ou música novamente", 'class="capture_keystroke"');
-        $mform->addRule('musicAgain', get_string('required'), 'required', null, 'client');
-        $mform->setType('musicAgain', PARAM_RAW);
+        $mform->addElement('text', 'music2', "Informe a mesma banda, artista ou música novamente", 'class="capture_keystroke"');
+        $mform->addRule('music2', get_string('required'), 'required', null, 'client');
+        $mform->setType('music2', PARAM_RAW);
+        $mform->addElement('text', 'music3', "Informe a mesma banda, artista ou música novamente", 'class="capture_keystroke"');
+        $mform->addRule('music3', get_string('required'), 'required', null, 'client');
+        $mform->setType('music3', PARAM_RAW);
         
         
         
-        $mform->addElement('static', 'sample', '', 'My super text'); 
+        
+        $mform->addElement('static', 'sample', '', 'você será capaz de sacudir o mundo, tente outra vez'); 
         $mform->addElement('textarea', 'textSample', "Digite o texto acima", 'class="capture_keystroke"');
         $mform->addRule('textSample', get_string('required'), 'required', null, 'client');
         $mform->setType('textSample', PARAM_RAW);
-        $mform->addElement('textarea', 'textSampleAgain', "Digite o texto acima novamente", 'class="capture_keystroke"');
-        $mform->addRule('textSampleAgain', get_string('required'), 'required', null, 'client');
-        $mform->setType('textSampleAgain', PARAM_RAW);
+        $mform->addElement('textarea', 'textSample2', "Digite o texto acima novamente", 'class="capture_keystroke"');
+        $mform->addRule('textSample2', get_string('required'), 'required', null, 'client');
+        $mform->setType('textSample2', PARAM_RAW);
+        $mform->addElement('textarea', 'textSample3', "Digite o texto acima novamente", 'class="capture_keystroke"');
+        $mform->addRule('textSample3', get_string('required'), 'required', null, 'client');
+        $mform->setType('textSample3', PARAM_RAW);
+        
+        
 
 
         // hidden optional params
