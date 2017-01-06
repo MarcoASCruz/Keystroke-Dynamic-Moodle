@@ -1,4 +1,4 @@
-Etapas para montar o ambiente do moodle com o protótipo de autenticação contínua 
+﻿Etapas para montar o ambiente do moodle com o protótipo de autenticação contínua 
 
 Parte 1: configurações básicas do servidor e do moodle
 	1. Instalar um servidor local
@@ -24,6 +24,6 @@ Parte 3: configurações do serviço web e do módulo de captura
 	2. Depois basta executar o flask com o comando “python -m flask run”, no windows
 	3. OBS: o módulo de captura aponta para localhost:5000, se os serviços flask estão em outro local, então deverão ser feitas alterações no endereço do servidor. Isso pode ser mudado no módulo de captura que está em “www\moodle\mod\forum\yui\capture_keystroke”
 	
-¹ Link do drive: https://drive.google.com/drive/folders/0B5hbH38Q0EmuS1pidWdoZkVHN00
+¹ Link do drive: https://drive.google.com/drive/folders/0B5hbH38Q0EmuU0U0MnFydkJnQTQ?usp=sharing
 ² A em desenvolvimento foi utilizada para poder usar algoritmos de Redes Neurais - MPL
 
