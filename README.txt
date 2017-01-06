@@ -23,6 +23,9 @@ Parte 3: configurações do serviço web e do módulo de captura
 		b. OBS: o caminho completo vai depender do ambiente de cada um, contudo, dentro do servidor o keystrokeService.py se encontra em “\www\moodle\webservice\rest”
 	2. Depois basta executar o flask com o comando “python -m flask run”, no windows
 	3. OBS: o módulo de captura aponta para localhost:5000, se os serviços flask estão em outro local, então deverão ser feitas alterações no endereço do servidor. Isso pode ser mudado no módulo de captura que está em “www\moodle\mod\forum\yui\capture_keystroke”
+	NOTE FOR MAC USERS:
+	PARTE 3, ITEM 2: export FLASK_APP="caminho.keystroke.py" not must be use " ".
+	after this, use the bash command: flask run.
 	
 ¹ Link do drive: https://drive.google.com/drive/folders/0B5hbH38Q0EmuU0U0MnFydkJnQTQ?usp=sharing
 ² A em desenvolvimento foi utilizada para poder usar algoritmos de Redes Neurais - MPL
