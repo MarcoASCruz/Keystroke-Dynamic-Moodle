@@ -27,6 +27,6 @@ Parte 3: configurações do serviço web e do módulo de captura
 	PARTE 3, ITEM 2: export FLASK_APP="caminho.keystroke.py" not must be use " ".
 	after this, use the bash command: flask run.
 	
-¹ Link do drive: https://drive.google.com/drive/folders/0B5hbH38Q0EmuU0U0MnFydkJnQTQ?usp=sharing
+¹ Link do drive: https://drive.google.com/drive/folders/0B5hbH38Q0EmuUjN0ZmhTVnVCUjQ?usp=sharing
 ² A em desenvolvimento foi utilizada para poder usar algoritmos de Redes Neurais - MPL
 
